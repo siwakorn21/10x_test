@@ -1,0 +1,78 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Party {
+  id: String!
+  name: String!
+  currentMembers: Int!
+  maxMembers: Int!
+}
+
+type User {
+  id: String!
+  email: String!
+  password: String!
+}
+
+type Member {
+  id: String!
+  partyId: String!
+  userId: String!
+}
+
+type Query {
+  parties: [Party!]!
+  party(id: String!): Party!
+  users: [User!]!
+  user(id: String!): User!
+  members: [Member!]!
+  member(id: String!): Member!
+}
+
+type Mutation {
+  createParty(createPartyInput: CreatePartyInput!): Party!
+  updateParty(updatePartyInput: UpdatePartyInput!): Party!
+  removeParty(id: String!): Party!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  createMember(createMemberInput: CreateMemberInput!): Member!
+  updateMember(updateMemberInput: UpdateMemberInput!): Member!
+  removeMember(id: String!): Member!
+}
+
+input CreatePartyInput {
+  name: String!
+  currentMembers: Int!
+  maxMembers: Int!
+}
+
+input UpdatePartyInput {
+  name: String
+  currentMembers: Int
+  maxMembers: Int
+  id: String!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  email: String
+  password: String
+  id: String!
+}
+
+input CreateMemberInput {
+  partyId: String!
+  userId: String!
+}
+
+input UpdateMemberInput {
+  partyId: String
+  userId: String
+  id: String!
+}
